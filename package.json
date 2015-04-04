@@ -10,6 +10,7 @@
     "requirejs": "latest",
     "grunt": "latest",
     "grunt-bowercopy": "latest",
+    "grunt-contrib-symlink": "latest",
     "bower": "latest",
     "grunt-cli": "latest",
     "almond": "latest"

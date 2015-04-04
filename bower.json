@@ -3,12 +3,12 @@
     "version": "0.0.1",
     "description": "Polymer inspired implementation of Material Design. Use standalone or with Mithril.",
     "license": "MIT",
-    "ignore": [
-        "**/.*"
-    ],
+    "ignore": ["**/.*"],
     "dependencies": {
-        "mithril": "latest",
-        "requirejs": "latest",
-        "require-css": "latest"
+        "Polythene": "",
+        "mithril": "",
+        "requirejs": "",
+        "require-css": "",
+        "material-design-iconic-font": ""
     }
 }

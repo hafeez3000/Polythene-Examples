@@ -1,6 +1,6 @@
 # Polythene Examples
 
-Repository of [Polythene](https://github.com/ArthurClemens/Polythene) components.
+Demonstration of [Polythene](https://github.com/ArthurClemens/Polythene) components.
 
 
 ## Dependencies
