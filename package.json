@@ -11,6 +11,7 @@
     "grunt": "latest",
     "grunt-bowercopy": "latest",
     "grunt-contrib-symlink": "latest",
+    "grunt-requirejs": "latest",
     "bower": "latest",
     "grunt-cli": "latest",
     "almond": "latest"
