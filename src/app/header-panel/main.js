@@ -1,4 +1,4 @@
-define(function(require){
+define(function(require) {
     'use strict';
 
     var m = require('mithril'),
@@ -12,10 +12,11 @@ define(function(require){
         navView;
 
     require('polythene/layout/layout');
+    require('css!app-css');
+    require('css!./main');
 
     template = [
-        '<div class="content">',
-        [
+        '<div class="content">', [
             'Harun Omar and Master Hafiz',
             'keep your dead beautiful ladies',
             'Mine is a little lovelier',
@@ -26,8 +27,9 @@ define(function(require){
             'is a little stranger thing',
             'than crisp Sheba with her king',
             'in the morning wandering.',
-            ].join('<br />'),
-        '</div>'].join('');
+        ].join('<br />'),
+        '</div>'
+    ].join('');
 
     createToolbar = function(mode, label) {
         return toolbar({
@@ -63,9 +65,14 @@ define(function(require){
         return div;
     };
 
-    navView = nav('header-panel', 'Header Panel', 'Mithril version');
+    navView = nav({
+        baseFileName: 'header-panel',
+        title: 'Header Panel',
+        subtitle: 'Mithril version'
+    });
+
     m.module(createContainer('div'), {
-        controller: function(){},
+        controller: function() {},
         view: function() {
             return navView;
         }
@@ -74,45 +81,61 @@ define(function(require){
     m.module(createContainer('flex-container'), headerPanel({
         mode: 'standard',
         container: function(inner) {
-            return m('div[flex]', {class: 'header-panel'}, inner);
+            return m('div[flex]', {
+                class: 'header-panel'
+            }, inner);
         },
-        header: m('div', {class: 'header'}, 'Flex'),
+        header: m('div', {
+            class: 'header'
+        }, 'Flex'),
         body: m.trust(template)
     }));
 
     m.module(createContainer('container'), headerPanel({
         mode: 'standard',
-        header: m('div', {class: 'header'}, 'Standard'),
+        header: m('div', {
+            class: 'header'
+        }, 'Standard'),
         body: m.trust(template)
     }));
 
     m.module(createContainer('container'), headerPanel({
         mode: 'seamed',
-        header: m('div', {class: 'header'}, 'Seamed'),
+        header: m('div', {
+            class: 'header'
+        }, 'Seamed'),
         body: m.trust(template)
     }));
 
     m.module(createContainer('container'), headerPanel({
         mode: 'waterfall',
-        header: m('div', {class: 'header'}, 'Waterfall'),
+        header: m('div', {
+            class: 'header'
+        }, 'Waterfall'),
         body: m.trust(template)
     }));
 
     m.module(createContainer('container'), headerPanel({
         mode: 'tall',
-        header: m('div', {class: 'header'}, 'Waterfall tall'),
+        header: m('div', {
+            class: 'header'
+        }, 'Waterfall tall'),
         body: m.trust(template)
     }));
     m.module(createContainer('container'), headerPanel({
         mode: 'tall',
-        header: m('div', {class: 'header medium-tall'}, 'Waterfall tall (tallClass: medium-tall)'),
+        header: m('div', {
+            class: 'header medium-tall'
+        }, 'Waterfall tall (tallClass: medium-tall)'),
         body: m.trust(template),
         tallClass: 'medium-tall'
     }));
 
     m.module(createContainer('container'), headerPanel({
         mode: 'scroll',
-        header: m('div', {class: 'header'}, 'Scroll'),
+        header: m('div', {
+            class: 'header'
+        }, 'Scroll'),
         body: m.trust(template)
     }));
 

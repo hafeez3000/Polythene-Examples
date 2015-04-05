@@ -5,10 +5,11 @@
     "license": "MIT",
     "ignore": ["**/.*"],
     "dependencies": {
-        "Polythene": "",
-        "mithril": "",
+        "Polythene": "git://github.com/ArthurClemens/Polythene#master",
+        "mithril": "git://github.com/lhorie/mithril.js#components",
         "requirejs": "",
         "require-css": "",
+        "requirejs-text": "",
         "material-design-iconic-font": ""
     }
 }

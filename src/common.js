@@ -2,15 +2,19 @@ require.config({
     baseUrl: 'app/lib',
     paths: {
         'mithril': 'mithril/mithril',
+
         'css': 'require-css/css',
+        'text': 'requirejs-text/text',
 
         'app': '..',
+        'app-css': '../app',
         'common': '../../common',
-        'nav': '../../app-nav'
+        'nav': '../app-nav'
     },
     map: {
       '*': {
-          'css': 'require-css/css'
+          'css': 'require-css/css',
+          'text': 'requirejs-text/text'
       }
     },
     shim: {},
@@ -18,7 +22,8 @@ require.config({
     callback: function(require) {
         'use strict';
 
-        var filename = location.pathname.match(/\/([^\/]*)$/),
+        var path = (location.pathname === '/') ? '/index.html' : location.pathname,
+            filename = path.match(/\/([^\/]*)$/),
             modulename;
 
         if (filename && filename[1] !== '') {

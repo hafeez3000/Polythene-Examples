@@ -7,7 +7,7 @@
 
         <!-- common -->
         <link rel='stylesheet' href='app/lib/polythene/layout/layout.css'>
-        <link rel='stylesheet' href='css/app.css'>
+        <link rel='stylesheet' href='app/app.css'>
 
         <!-- this module -->
         <link rel='stylesheet' href='app/lib/polythene/header-panel/header-panel.css'>
@@ -17,14 +17,33 @@
         <link rel='stylesheet' href='app/lib/polythene/font-iconic/font-iconic.css'>
 
         <!-- this example -->
-        <link rel='stylesheet' href='css/header-panel.css'>
+        <link rel='stylesheet' href='app/header-panel/main.css'>
 
     </head>
     <body class='demo-header-panel' fullbleed>
-        <div class="p-title-block">
-            <span>Plain</span><a href="./header-panel.html">Mithril</a>
-            <h1>Header Panel<span>Plain version</span></h1>
+
+        <div center="true" horizontal="true" layout="true" class="p-nav-block">
+            <a href="/" class="icon-button">
+                <div class="icon">
+                    <i fit="true" class="material-design-iconic-font">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                            <path d="M8 16h8v-8h-8v8zm12 24h8v-8h-8v8zm-12 0h8v-8h-8v8zm0-12h8v-8h-8v8zm12 0h8v-8h-8v8zm12-20v8h8v-8h-8zm-12 8h8v-8h-8v8zm12 12h8v-8h-8v8zm0 12h8v-8h-8v8z"></path>
+                            <path d="M0 0h48v48h-48z" fill="none"></path>
+                        </svg>
+                    </i>
+                </div>
+            </a>
+            <div class="p-title indent">Header Panel
+                <span>Plain version</span>
+            </div>
+            <span flex="true"></span>
+            <div class="p-version">
+                <span>Plain</span>
+                <a href="./header-panel.html">Mithril</a>
+            </div>
         </div>
+
         <div class="flex-container">
             <div flex="true" class="header-panel">
                 <div vertical="true" layout="true" class="outerContainer">

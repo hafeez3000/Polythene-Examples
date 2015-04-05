@@ -2,22 +2,25 @@ define(function(require) {
     'use strict';
 
     var m = require('mithril'),
-        icon = require('polythene/icon/icon'),
+        iconBtn = require('polythene/icon-button/icon-button'),
+        toolbar = require('polythene/toolbar/toolbar'),
         nav = require('nav'),
-        block,
+        iconBlock,
+        toolbarBlock,
         content;
 
     require('polythene/layout/layout');
     require('css!app-css');
+    require('css!./main');
 
-    block = m.component({
+    iconBlock = m.component({
         view: function(ctrl, args) {
-        	var args1 = (JSON.parse(JSON.stringify(args))); // copy object
+            var args1 = (JSON.parse(JSON.stringify(args))); // copy object
             return m('div', {
                 class: 'p-block p-large'
             }, [
                 m('span', args.label),
-                icon(args1)
+                iconBtn(args1)
             ]);
         }
     });
@@ -26,40 +29,24 @@ define(function(require) {
         view: function() {
             return [
                 nav({
-                    baseFileName: 'icon',
-                    title: 'Icon',
+                    baseFileName: 'icon-button',
+                    title: 'Icon Button',
                     subtitle: 'Mithril version'
                 }),
-                block({
+                iconBlock({
                     label: 'Menu',
                     group: 'navigation',
                     name: 'menu'
                 }),
-                block({
+                iconBlock({
                     label: 'Add',
                     group: 'content',
                     name: 'add'
                 }),
-                block({
+                iconBlock({
                     label: 'Refresh',
                     group: 'navigation',
                     name: 'refresh'
-                }),
-
-                block({
-                    label: 'Barcode',
-                    name: 'barcode',
-                    iconset: 'mdi'
-                }),
-                block({
-                    label: 'Happy',
-                    name: 'emoticon-happy',
-                    iconset: 'mdi'
-                }),
-                block({
-                    label: 'Headphones',
-                    name: 'headphones',
-                    iconset: 'mdi'
                 })
             ];
         }

@@ -13,6 +13,7 @@ module.exports = function(grunt) {
                     'mithril/mithril.js': 'mithril/mithril.js',
                     'requirejs/require.js': 'requirejs/require.js',
                     'require-css': 'require-css/*.js',
+                    'requirejs-text': 'requirejs-text/*.js',
                     'polythene/font-iconic/material-design-iconic-font/css': 'material-design-iconic-font/css/*',
                     'polythene/font-iconic/material-design-iconic-font/fonts': 'material-design-iconic-font/fonts/*'
                 }
@@ -47,13 +48,14 @@ module.exports = function(grunt) {
                 'optimize': 'uglify2',
                 'normalizeDirDefines': 'skip',
                 'skipDirOptimize': true,
+                'removeCombined': true
             },
             shared: {
                 options: {
                     'modules': [
                         {
                             'name': 'common',
-                            'include': ['css']
+                            'include': ['css', 'text']
                         },
                         {
                             'name': 'app/icon/main',
