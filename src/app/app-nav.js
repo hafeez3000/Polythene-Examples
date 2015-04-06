@@ -24,6 +24,7 @@ define(['mithril'], function(m) {
                     class: 'p-title indent'
                 }, [
                     args.title,
+                    m.trust(' '),
                     m('span', args.subtitle)
                 ]),
                 m('span[flex]'),

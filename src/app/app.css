@@ -33,6 +33,11 @@ h1 span {
 	margin: 20px 0 0 0;
 	padding: 20px 30px;
 }
+.p-block.p-inner-block {
+	padding: 10px 0;
+	margin: 0;
+	font-size: 1.4em;
+}
 .p-nav-block {
 	padding: 15px 30px;
 	height: 38px;
@@ -48,7 +53,7 @@ h1 span {
 .p-nav-block .p-title span {
 	font-weight: normal;
 	opacity: .6;
-	margin-left: .5em;
+	margin-left: .15em;
 }
 .p-nav-block .icon-button {
 	margin-left: -7px;
@@ -76,9 +81,9 @@ h1 span {
 	font-size: 1.1em;
 }
 
-.p-block.p-large {
+.p-large {
 	line-height: 1;
-	font-size: 1.8em;
+	font-size: 1.6em;
 }
 
 a {
@@ -105,9 +110,6 @@ a {
 	padding: .25em 2em .25em 0;
 	border-bottom: 1px solid #eee;
 }
-.p-block span + .icon {
-	margin-left: .5em;
-}
 .p-title-block a:link,
 .p-title-block a:visited {
 	color: #1E88E5;
@@ -116,10 +118,11 @@ a {
 .p-block .md {
 	color: orange;
 }
-.p-block i.material-design-iconic-font svg {
+.p-block .icon.md svg,
+.p-block .icon.google svg {
 	fill: orange;
 }
-.p-block i.mdi svg path {
+.p-block .icon.mdi svg path {
 	fill: orange;
 }
 
@@ -135,25 +138,8 @@ a {
 	color: #fff;
 }
 
-.p-block .toolbar i.material-design-iconic-font svg {
-	fill: #222;
-}
-.p-block .toolbar i.mdi svg path {
-	fill: #222;
-}
-.p-block .toolbar.dark-theme i.material-design-iconic-font svg {
-	fill: #fff;
-}
-.p-block .toolbar.dark-theme i.mdi svg path {
-	fill: #fff;
-}
-
 .p-block .toolbar {
 	margin: 10px 0 0 0;
-}
-
-.p-block .icon-button {
-	margin-left: 10px;
 }
 
 /*

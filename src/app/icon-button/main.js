@@ -20,6 +20,7 @@ define(function(require) {
                 class: 'p-block p-large'
             }, [
                 m('span', args.label),
+                m.trust(' '),
                 iconBtn(args1)
             ]);
         }
@@ -36,17 +37,20 @@ define(function(require) {
                 iconBlock({
                     label: 'Menu',
                     group: 'navigation',
-                    name: 'menu'
+                    name: 'menu',
+                    className: 'md'
                 }),
                 iconBlock({
                     label: 'Add',
                     group: 'content',
-                    name: 'add'
+                    name: 'add',
+                    className: 'md'
                 }),
                 iconBlock({
                     label: 'Refresh',
                     group: 'navigation',
-                    name: 'refresh'
+                    name: 'refresh',
+                    className: 'md'
                 })
             ];
         }
