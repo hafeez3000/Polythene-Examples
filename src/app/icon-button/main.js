@@ -3,10 +3,8 @@ define(function(require) {
 
     var m = require('mithril'),
         iconBtn = require('polythene/icon-button/icon-button'),
-        toolbar = require('polythene/toolbar/toolbar'),
         nav = require('nav'),
         iconBlock,
-        toolbarBlock,
         content;
 
     require('polythene/layout/layout');

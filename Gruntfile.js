@@ -15,7 +15,9 @@ module.exports = function(grunt) {
                     'require-css': 'require-css/*.js',
                     'requirejs-text': 'requirejs-text/*.js',
                     'polythene/font-iconic/material-design-iconic-font/css': 'material-design-iconic-font/css/*',
-                    'polythene/font-iconic/material-design-iconic-font/fonts': 'material-design-iconic-font/fonts/*'
+                    'polythene/font-iconic/material-design-iconic-font/fonts': 'material-design-iconic-font/fonts/*',
+                    'polythene/svg/material-design-iconic-font': 'material-design-iconic-font/svg/*',
+                    'polythene/svg/mdi': 'mdi/icons/svg/*'
                 }
             }
         },
@@ -56,14 +58,6 @@ module.exports = function(grunt) {
                         {
                             'name': 'common',
                             'include': ['css', 'text']
-                        },
-                        {
-                            'name': 'app/icon/main',
-                            'exclude': ['common']
-                        },
-                        {
-                            'name': 'app/header-panel/main',
-                            'exclude': ['common']
                         }
                     ]
                 }

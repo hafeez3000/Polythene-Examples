@@ -7,7 +7,7 @@ define(['mithril'], function(m) {
                 class: 'p-nav-block'
             }, [
                 m('a', {
-                        href: '/',
+                        href: 'index.html',
                         class: 'icon-button'
                     },
                     m('div', {
