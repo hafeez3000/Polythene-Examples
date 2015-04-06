@@ -13,13 +13,13 @@ define(function(require) {
 
     iconBlock = m.component({
         view: function(ctrl, args) {
-            var args1 = (JSON.parse(JSON.stringify(args))); // copy object
+            var btnArgs = (JSON.parse(JSON.stringify(args))); // copy object
             return m('div', {
                 class: 'p-block p-large'
             }, [
                 m('span', args.label),
                 m.trust(' '),
-                iconBtn(args1)
+                iconBtn(btnArgs.btn)
             ]);
         }
     });
@@ -34,21 +34,39 @@ define(function(require) {
                 }),
                 iconBlock({
                     label: 'Menu',
-                    group: 'navigation',
-                    name: 'menu',
-                    className: 'md'
+                    btn: {
+                        icon: {
+                            svg: {
+                                group: 'navigation',
+                                name: 'menu'
+                            },
+                            className: 'md'
+                        }
+                    }
                 }),
                 iconBlock({
                     label: 'Add',
-                    group: 'content',
-                    name: 'add',
-                    className: 'md'
+                    btn: {
+                        icon: {
+                            svg: {
+                                group: 'content',
+                                name: 'add'
+                            },
+                            className: 'md'
+                        }
+                    }
                 }),
                 iconBlock({
                     label: 'Refresh',
-                    group: 'navigation',
-                    name: 'refresh',
-                    className: 'md'
+                    btn: {
+                        icon: {
+                            svg: {
+                                group: 'navigation',
+                                name: 'refresh'
+                            },
+                            className: 'md'
+                        }
+                    }
                 })
             ];
         }

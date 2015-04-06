@@ -13,13 +13,12 @@ define(function(require) {
 
     block = m.component({
         view: function(ctrl, args) {
-            var args1 = (JSON.parse(JSON.stringify(args))); // copy object
             return m('div', {
                 class: 'p-block p-inner-block p-large'
             }, [
                 m('span', args.label),
                 m.trust(' '),
-                icon(args1)
+                icon(args.icon)
             ]);
         }
     });
@@ -48,21 +47,33 @@ define(function(require) {
                     content: [
                         block({
                             label: 'Menu',
-                            group: 'navigation',
-                            name: 'menu',
-                            className: 'md'
+                            icon: {
+                                svg: {
+                                    group: 'navigation',
+                                    name: 'menu'
+                                },
+                                className: 'md'
+                            }
                         }),
                         block({
                             label: 'Add',
-                            group: 'content',
-                            name: 'add',
-                            className: 'md'
+                            icon: {
+                                svg: {
+                                    group: 'content',
+                                    name: 'add'
+                                },
+                                className: 'md'
+                            }
                         }),
                         block({
                             label: 'Refresh',
-                            group: 'navigation',
-                            name: 'refresh',
-                            className: 'md'
+                            icon: {
+                                svg: {
+                                    group: 'navigation',
+                                    name: 'refresh'
+                                },
+                                className: 'md'
+                            }
                         })
                     ]
                 }),
@@ -72,48 +83,75 @@ define(function(require) {
                     content: [
                         block({
                             label: 'Barcode',
-                            name: 'barcode',
-                            iconset: 'mdi'
+                            icon: {
+                                svg: {
+                                    name: 'barcode',
+                                    iconset: 'mdi'
+                                },
+                                className: 'mdi'
+                            }
                         }),
                         block({
                             label: 'Happy',
-                            name: 'emoticon-happy',
-                            iconset: 'mdi'
+                            icon: {
+                                svg: {
+                                    name: 'emoticon-happy',
+                                    iconset: 'mdi'
+                                },
+                                className: 'mdi'
+                            }
                         }),
                         block({
                             label: 'Headphones',
-                            name: 'headphones',
-                            iconset: 'mdi'
+                            icon: {
+                                svg: {
+                                    name: 'headphones',
+                                    iconset: 'mdi'
+                                },
+                                className: 'mdi'
+                            }
                         })
                     ]
                 }),
 
                 titleBlock({
-                    title: 'Icon src (svg)',
+                    title: 'svg.src',
                     content: [
                         block({
                             label: 'Flight',
-                            src: 'app/icon/img/ic_flight_24px.svg',
-                            className: 'google'
+                            icon: {
+                                svg: {
+                                    src: 'app/icon/img/ic_flight_24px.svg'
+                                },
+                                className: 'google'
+                            }
                         }),
                         block({
                             label: 'Pin drop',
-                            src: 'app/icon/img/ic_pin_drop_48px.svg',
-                            className: 'google'
+                            icon: {
+                                svg: {
+                                    src: 'app/icon/img/ic_pin_drop_48px.svg'
+                                },
+                                className: 'google'
+                            }
                         })
                     ]
                 }),
 
                 titleBlock({
-                    title: 'Icon src (png)',
+                    title: 'icon.src (png)',
                     content: [
                         block({
                             label: 'Directions',
-                            src: 'app/icon/img/ic_directions_black_48dp.png'
+                            icon: {
+                                src: 'app/icon/img/ic_directions_black_48dp.png'
+                            }
                         }),
                         block({
                             label: 'Chat',
-                            src: 'app/icon/img/ic_chat_black_48dp.png'
+                            icon: {
+                                src: 'app/icon/img/ic_chat_black_48dp.png'
+                            }
                         })
                     ]
                 })

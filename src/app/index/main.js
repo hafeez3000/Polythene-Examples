@@ -16,6 +16,9 @@ define(function(require) {
         baseUrl: 'icon-button',
         name: 'Icon Button'
     }, {
+        baseUrl: 'item',
+        name: 'Item'
+    }, {
         baseUrl: 'toolbar',
         name: 'Toolbar'
     }, {

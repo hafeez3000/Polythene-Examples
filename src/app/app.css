@@ -36,7 +36,7 @@ h1 span {
 .p-block.p-inner-block {
 	padding: 10px 0;
 	margin: 0;
-	font-size: 1.4em;
+	font-size: 1.2em;
 }
 .p-nav-block {
 	padding: 15px 30px;
@@ -127,14 +127,14 @@ a {
 }
 
 .p-block .toolbar {
-	background-color: #CFA0E9;
+	background-color: #BBDEFB;
 	color: #222;
 	margin: 0 0 20px 0;
 	font-size: 21px;
 }
 
 .p-block .toolbar.dark-theme {
-	background-color: #7D25AC;
+	background-color: #0D47A1;
 	color: #fff;
 }
 

@@ -28,11 +28,13 @@ define(['mithril'], function(m) {
                     m('span', args.subtitle)
                 ]),
                 m('span[flex]'),
-                m('div', {class: 'p-version'}, [
-                	m('a', {
-                	    href: './' + args.baseFileName + '-plain.html',
-                	}, 'Plain'),
-                	m('span', 'Mithril')
+                m('div', {
+                    class: 'p-version'
+                }, [
+                    m('a', {
+                        href: './' + args.baseFileName + '-plain.html',
+                    }, 'Plain'),
+                    m('span', 'Mithril')
                 ])
             ]);
         }
