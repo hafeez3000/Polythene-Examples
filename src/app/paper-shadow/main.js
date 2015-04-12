@@ -88,7 +88,7 @@ define(function(require) {
                                 events: {
                                     onclick: tapController.handleClick
                                 },
-                                key: item.id
+                                animated: true
                             });
                         })
                     ])
