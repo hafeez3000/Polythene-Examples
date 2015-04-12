@@ -2,7 +2,6 @@ define(function(require) {
     'use strict';
 
     var m = require('mithril'),
-        nav = require('nav'),
         content,
         links;
 
@@ -24,6 +23,9 @@ define(function(require) {
     }, {
         baseUrl: 'header-panel',
         name: 'Header Panel'
+    }, {
+        baseUrl: 'paper-shadow',
+        name: 'Paper Shadow'
     }];
     content = m.component({
         view: function() {

@@ -1,4 +1,4 @@
-define(['mithril'], function(m) {
+define(['mithril', 'polythene/icon/icon'], function(m) {
     'use strict';
 
     return m.component({
