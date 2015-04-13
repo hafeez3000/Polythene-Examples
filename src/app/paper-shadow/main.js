@@ -108,7 +108,7 @@ define(function(require) {
                                     onclick: tapHelper.handleClick
                                 },
                                 animated: true,
-                                z: 2
+                                z: tapHelper.getZ(item.id)
                             });
                         })
                     ])
