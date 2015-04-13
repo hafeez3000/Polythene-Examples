@@ -38,7 +38,7 @@ define(function(require) {
 
         return {
             handleClick: function(e, component, controller) {
-                controller.z = updateZ(e.target.getAttribute('data-id'));
+                controller.z(updateZ(e.target.getAttribute('data-id')));
             }
         };
     }.call();

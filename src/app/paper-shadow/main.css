@@ -1,6 +1,6 @@
 .card, .fab {
     display: inline-block;
-    background: #fff;
+    background: #FFC400;
     text-align: center;
     width: 100px;
     height: 100px;
@@ -22,7 +22,6 @@
 }
 .card[animated], .fab[animated] {
     cursor: pointer;
-    border: 1px solid #eee;
 }
 .card [self-center], .fab [self-center] {
 	width: 100%;
