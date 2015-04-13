@@ -5,7 +5,7 @@ define(function(require) {
         paper_shadow = require('polythene/paper-shadow/paper-shadow'),
         nav = require('nav'),
         titleBlock,
-        tapController,
+        tapDelegate,
         content;
 
     require('polythene/layout/layout');
@@ -23,14 +23,14 @@ define(function(require) {
         }
     });
 
-    tapController = function() {
+    tapDelegate = function() {
         var STEPS = 5,
             components = {},
-            updateZ;
+            getNextZ;
 
-        updateZ = function(id) {
+        getNextZ = function(id, controller) {
             if (components[id] === undefined) {
-                components[id] = STEPS;
+                components[id] = STEPS + controller.z();
             }
             components[id]++;
             return Math.abs((components[id] % (2 * STEPS)) - STEPS);
@@ -38,7 +38,9 @@ define(function(require) {
 
         return {
             handleClick: function(e, component, controller) {
-                controller.z(updateZ(e.target.getAttribute('data-id')));
+                var id = e.target.getAttribute('data-id'),
+                    z = getNextZ(id, controller);
+                controller.z(z);
             }
         };
     }.call();
@@ -75,7 +77,7 @@ define(function(require) {
                 }),
 
                 titleBlock({
-                    title: 'Animated',
+                    title: 'Interactive and animated',
                     content: m('div[layout][horizontal]', [
                         tapItems.map(function(item) {
                             return paper_shadow({
@@ -86,9 +88,10 @@ define(function(require) {
                                     'data-id': item.id
                                 },
                                 events: {
-                                    onclick: tapController.handleClick
+                                    onclick: tapDelegate.handleClick
                                 },
-                                animated: true
+                                animated: true,
+                                z: 2
                             });
                         })
                     ])
