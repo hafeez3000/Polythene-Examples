@@ -5,7 +5,7 @@ define(function(require) {
         paper_shadow = require('polythene/paper-shadow/paper-shadow'),
         nav = require('nav'),
         titleBlock,
-        tapDelegate,
+        tapHelper,
         content;
 
     require('polythene/layout/layout');
@@ -23,17 +23,23 @@ define(function(require) {
         }
     });
 
-    tapDelegate = function() {
+    tapHelper = function() {
         var STEPS = 5,
-            components = {},
+            defaultZ = 2,
+            zs = {},
+            calculateZ,
             getNextZ;
 
+        calculateZ = function(workingZ) {
+            return Math.abs((workingZ % (2 * STEPS)) - STEPS);
+        };
+
         getNextZ = function(id, controller) {
-            if (components[id] === undefined) {
-                components[id] = STEPS + controller.z();
+            if (zs[id] === undefined) {
+                zs[id] = STEPS + controller.z();
             }
-            components[id]++;
-            return Math.abs((components[id] % (2 * STEPS)) - STEPS);
+            zs[id]++;
+            return calculateZ(zs[id]);
         };
 
         return {
@@ -41,6 +47,13 @@ define(function(require) {
                 var id = e.target.getAttribute('data-id'),
                     z = getNextZ(id, controller);
                 controller.z(z);
+            },
+            getZ: function(id) {
+                if (zs[id] !== undefined) {
+                    return calculateZ(zs[id]);
+                } else {
+                    return defaultZ;
+                }
             }
         };
     }.call();
@@ -81,14 +94,18 @@ define(function(require) {
                     content: m('div[layout][horizontal]', [
                         tapItems.map(function(item) {
                             return paper_shadow({
-                                content: m('div[self-center]', 'tap me'),
+                                content: m('div[self-center]', [
+                                    m('span', 'tap me'),
+                                    m('br'),
+                                    m('span', tapHelper.getZ(item.id))
+                                ]),
                                 className: item.className,
                                 tag: 'div[animated][layout][horizontal]',
                                 props: {
                                     'data-id': item.id
                                 },
                                 events: {
-                                    onclick: tapDelegate.handleClick
+                                    onclick: tapHelper.handleClick
                                 },
                                 animated: true,
                                 z: 2
