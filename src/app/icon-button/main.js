@@ -11,26 +11,26 @@ define(function(require) {
     require('css!app-css');
     require('css!./main');
 
-    iconBlock = m.component({
+    iconBlock = {
         view: function(ctrl, args) {
             var btnArgs = (JSON.parse(JSON.stringify(args))); // copy object
             return m('.p-block.p-large', [
                 m('span', args.label),
                 m.trust(' '),
-                iconBtn(btnArgs.btn)
+                m.component(iconBtn, btnArgs.btn)
             ]);
         }
-    });
+    };
 
-    content = m.component({
+    content = {
         view: function() {
             return [
-                nav({
+                m.component(nav, {
                     baseFileName: 'icon-button',
                     title: 'Icon Button',
                     subtitle: 'Mithril version'
                 }),
-                iconBlock({
+                m.component(iconBlock, {
                     label: 'Menu',
                     btn: {
                         icon: {
@@ -42,7 +42,7 @@ define(function(require) {
                         }
                     }
                 }),
-                iconBlock({
+                m.component(iconBlock, {
                     label: 'Add',
                     btn: {
                         icon: {
@@ -54,7 +54,7 @@ define(function(require) {
                         }
                     }
                 }),
-                iconBlock({
+                m.component(iconBlock, {
                     label: 'Refresh',
                     btn: {
                         icon: {
@@ -68,7 +68,7 @@ define(function(require) {
                 })
             ];
         }
-    });
+    };
 
-    m.mount(document.body, content());
+    m.mount(document.body, content);
 });

@@ -14,7 +14,7 @@ define(function(require) {
     require('css!app-css');
 
     btn = function(group, name) {
-        return iconBtn({
+        return m.component(iconBtn, {
             icon: {
                 svg: {
                     group: group,
@@ -31,44 +31,44 @@ define(function(require) {
         btn('content', 'add')
     ];
 
-    toolbarBlock = m.component({
+    toolbarBlock = {
         view: function(ctrl, args) {
             return m('.p-block', [
                 m('span', args.label),
-                toolbar(args.toolbar)
+                m.component(toolbar, args.toolbar)
             ]);
         }
-    });
+    };
 
     content = m.component({
         view: function() {
             return [
-                nav({
+                m.component(nav, {
                     baseFileName: 'toolbar',
                     title: 'Toolbar',
                     subtitle: 'Mithril version'
                 }),
-                toolbarBlock({
+                m.component(toolbarBlock, {
                     label: 'Content',
                     toolbar: {
                         content: toolbarRow
                     }
                 }),
-                toolbarBlock({
+                m.component(toolbarBlock, {
                     label: 'Class dark-theme',
                     toolbar: {
                         className: 'dark-theme',
                         content: toolbarRow
                     }
                 }),
-                toolbarBlock({
+                m.component(toolbarBlock, {
                     label: 'Tall with elements pinned to the bottom',
                     toolbar: {
                         mode: 'tall',
                         bottomBar: toolbarRow
                     }
                 }),
-                toolbarBlock({
+                m.component(toolbarBlock, {
                     label: 'Medium-tall with label aligns to the bottom',
                     toolbar: {
                         mode: 'medium-tall',
@@ -76,7 +76,7 @@ define(function(require) {
                         bottomBar: m.trust('<span flex class="indent">Bottom content</span>')
                     }
                 }),
-                toolbarBlock({
+                m.component(toolbarBlock, {
                     label: 'Three bars',
                     toolbar: {
                         mode: 'tall',
@@ -85,7 +85,7 @@ define(function(require) {
                         bottomBar: m.trust('<div class="bottom indent" style="color: #666; font-size: 18px;">some stuffs align to the bottom</div>')
                     }
                 }),
-                toolbarBlock({
+                m.component(toolbarBlock, {
                     label: 'With loader bar',
                     toolbar: {
                         mode: 'tall',
@@ -97,6 +97,6 @@ define(function(require) {
             ];
         }
     });
-
-    m.mount(document.body, content());
+    
+    m.mount(document.body, content);
 });

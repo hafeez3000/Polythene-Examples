@@ -27,7 +27,7 @@ define(function(require) {
         baseUrl: 'paper-shadow',
         name: 'Paper Shadow'
     }];
-    content = m.component({
+    content = {
         view: function() {
             return [
                 m('div', {
@@ -50,7 +50,7 @@ define(function(require) {
                 })))
             ];
         }
-    });
+    };
 
-    m.mount(document.body, content());
+    m.mount(document.body, content);
 });

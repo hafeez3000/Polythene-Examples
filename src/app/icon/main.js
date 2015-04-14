@@ -11,37 +11,37 @@ define(function(require) {
     require('polythene/layout/layout');
     require('css!app-css');
 
-    block = m.component({
+    block = {
         view: function(ctrl, args) {
             return m('.p-block.p-inner-block.p-large', [
                 m('span', args.label),
                 m.trust(' '),
-                icon(args.icon)
+                m.component(icon, args.icon)
             ]);
         }
-    });
+    };
 
-    titleBlock = m.component({
+    titleBlock = {
         view: function(ctrl, args) {
             return m('.p-block', [
                 m('h2', args.title),
                 args.content
             ]);
         }
-    });
+    };
 
-    content = m.component({
+    content = {
         view: function() {
             return [
-                nav({
+                m.component(nav, {
                     baseFileName: 'icon',
                     title: 'Icon',
                     subtitle: 'Mithril version'
                 }),
-                titleBlock({
+                m.component(titleBlock, {
                     title: 'Iconset: Material Design Icon Font',
                     content: [
-                        block({
+                        m.component(block, {
                             label: 'Menu',
                             icon: {
                                 svg: {
@@ -51,7 +51,7 @@ define(function(require) {
                                 className: 'md'
                             }
                         }),
-                        block({
+                        m.component(block, {
                             label: 'Add',
                             icon: {
                                 svg: {
@@ -61,7 +61,7 @@ define(function(require) {
                                 className: 'md'
                             }
                         }),
-                        block({
+                        m.component(block, {
                             label: 'Refresh',
                             icon: {
                                 svg: {
@@ -74,10 +74,10 @@ define(function(require) {
                     ]
                 }),
 
-                titleBlock({
+                m.component(titleBlock, {
                     title: 'Iconset: Templarian Material Design',
                     content: [
-                        block({
+                        m.component(block, {
                             label: 'Barcode',
                             icon: {
                                 svg: {
@@ -87,7 +87,7 @@ define(function(require) {
                                 className: 'mdi'
                             }
                         }),
-                        block({
+                        m.component(block, {
                             label: 'Happy',
                             icon: {
                                 svg: {
@@ -97,7 +97,7 @@ define(function(require) {
                                 className: 'mdi'
                             }
                         }),
-                        block({
+                        m.component(block, {
                             label: 'Headphones',
                             icon: {
                                 svg: {
@@ -110,10 +110,10 @@ define(function(require) {
                     ]
                 }),
 
-                titleBlock({
+                m.component(titleBlock, {
                     title: 'svg.src',
                     content: [
-                        block({
+                        m.component(block, {
                             label: 'Flight',
                             icon: {
                                 svg: {
@@ -122,7 +122,7 @@ define(function(require) {
                                 className: 'google'
                             }
                         }),
-                        block({
+                        m.component(block, {
                             label: 'Pin drop',
                             icon: {
                                 svg: {
@@ -134,16 +134,16 @@ define(function(require) {
                     ]
                 }),
 
-                titleBlock({
+                m.component(titleBlock, {
                     title: 'icon.src (png)',
                     content: [
-                        block({
+                        m.component(block, {
                             label: 'Directions',
                             icon: {
                                 src: 'app/icon/img/ic_directions_black_48dp.png'
                             }
                         }),
-                        block({
+                        m.component(block, {
                             label: 'Chat',
                             icon: {
                                 src: 'app/icon/img/ic_chat_black_48dp.png'
@@ -153,7 +153,7 @@ define(function(require) {
                 })
             ];
         }
-    });
+    };
 
-    m.mount(document.body, content());
+    m.mount(document.body, content);
 });

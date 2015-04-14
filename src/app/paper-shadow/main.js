@@ -12,16 +12,16 @@ define(function(require) {
     require('css!app-css');
     require('css!./main');
 
-    titleBlock = m.component({
+    titleBlock = {
         view: function(ctrl, args) {
             return m('.p-block', [
                 m('h2', args.title),
                 args.content
             ]);
         }
-    });
+    };
 
-    interactiveShadow = m.component({
+    interactiveShadow = {
         controller: function(args) {
             var STEPS = 5,
                 defaultZ = 2,
@@ -57,7 +57,7 @@ define(function(require) {
             };
         },
         view: function(ctrl, args) {
-            var paperShadow = paper_shadow({
+            var paperShadow = m.component(paper_shadow, {
                 content: m('div[self-center]', [
                     m('span', 'tap me'),
                     m('br'),
@@ -73,9 +73,9 @@ define(function(require) {
             });
             return paperShadow;
         }
-    });
+    };
 
-    content = m.component({
+    content = {
         view: function() {
             var indices = [0, 1, 2, 3, 4, 5];
             var tapItems = [{
@@ -86,17 +86,17 @@ define(function(require) {
                 className: 'fab'
             }];
             return [
-                nav({
+                m.component(nav, {
                     baseFileName: 'paper-shadow',
                     title: 'Paper-Shadow',
                     subtitle: 'Mithril version'
                 }),
 
-                titleBlock({
+                m.component(titleBlock, {
                     title: 'Shadows',
                     content: m('div[layout][horizontal]', [
                         indices.map(function(z) {
-                            return paper_shadow({
+                            return m.component(paper_shadow, {
                                 z: z,
                                 content: m('div[self-center]', 'z = ' + z),
                                 className: 'card',
@@ -106,11 +106,11 @@ define(function(require) {
                     ])
                 }),
 
-                titleBlock({
+                m.component(titleBlock, {
                     title: 'Interactive and animated',
                     content: m('div[layout][horizontal]', [
                         tapItems.map(function(item) {
-                            return interactiveShadow({
+                            return m.component(interactiveShadow, {
                                 id: item.id,
                                 className: item.className
                             });
@@ -119,7 +119,7 @@ define(function(require) {
                 })
             ];
         }
-    });
+    };
 
-    m.mount(document.body, content());
+    m.mount(document.body, content);
 });

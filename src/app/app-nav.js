@@ -1,7 +1,7 @@
 define(['mithril', 'polythene/icon/icon'], function(m) {
     'use strict';
 
-    return m.component({
+    return {
         view: function(ctrl, args) {
             return m('div[center][horizontal][layout]', {
                 class: 'p-nav-block'
@@ -38,5 +38,5 @@ define(['mithril', 'polythene/icon/icon'], function(m) {
                 ])
             ]);
         }
-    });
+    };
 });
