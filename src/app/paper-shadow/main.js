@@ -5,7 +5,7 @@ define(function(require) {
         paper_shadow = require('polythene/paper-shadow/paper-shadow'),
         nav = require('nav'),
         titleBlock,
-        tapHelper,
+        interactiveShadow,
         content;
 
     require('polythene/layout/layout');
@@ -14,49 +14,66 @@ define(function(require) {
 
     titleBlock = m.component({
         view: function(ctrl, args) {
-            return m('div', {
-                class: 'p-block'
-            }, [
+            return m('.p-block', [
                 m('h2', args.title),
                 args.content
             ]);
         }
     });
 
-    tapHelper = function() {
-        var STEPS = 5,
-            defaultZ = 2,
-            zs = {},
-            calculateZ,
-            getNextZ;
+    interactiveShadow = m.component({
+        controller: function(args) {
+            var STEPS = 5,
+                defaultZ = 2,
+                zs = {},
+                calculateZ,
+                getNextZ;
 
-        calculateZ = function(workingZ) {
-            return Math.abs((workingZ % (2 * STEPS)) - STEPS);
-        };
+            calculateZ = function(workingZ) {
+                return Math.abs((workingZ % (2 * STEPS)) - STEPS);
+            };
 
-        getNextZ = function(id, controller) {
-            if (zs[id] === undefined) {
-                zs[id] = STEPS + controller.z();
-            }
-            zs[id]++;
-            return calculateZ(zs[id]);
-        };
-
-        return {
-            handleClick: function(e, component, controller) {
-                var id = e.target.getAttribute('data-id'),
-                    z = getNextZ(id, controller);
-                controller.z(z);
-            },
-            getZ: function(id) {
-                if (zs[id] !== undefined) {
-                    return calculateZ(zs[id]);
-                } else {
-                    return defaultZ;
+            getNextZ = function(id, controller) {
+                if (zs[id] === undefined) {
+                    zs[id] = STEPS + controller.z();
                 }
-            }
-        };
-    }.call();
+                zs[id] ++;
+                return calculateZ(zs[id]);
+            };
+
+            return {
+                handleClick: function(e, component, controller) {
+                    var z;
+                    z = getNextZ(args.id, controller);
+                    controller.z(z);
+                },
+                getZ: function(id) {
+                    if (zs[id] !== undefined) {
+                        return calculateZ(zs[id]);
+                    } else {
+                        return defaultZ;
+                    }
+                }
+            };
+        },
+        view: function(ctrl, args) {
+            var paperShadow = paper_shadow({
+                content: m('div[self-center]', [
+                    m('span', 'tap me'),
+                    m('br'),
+                    m('span', 'z = ' + ctrl.getZ(args.id))
+                ]),
+                className: args.className,
+                tag: 'div[animated][layout][horizontal]',
+                events: {
+                    onclick: ctrl.handleClick
+                },
+                animated: true,
+                z: ctrl.getZ(args.id)
+            });
+            return paperShadow;
+        }
+    });
 
     content = m.component({
         view: function() {
@@ -93,22 +110,9 @@ define(function(require) {
                     title: 'Interactive and animated',
                     content: m('div[layout][horizontal]', [
                         tapItems.map(function(item) {
-                            return paper_shadow({
-                                content: m('div[self-center]', [
-                                    m('span', 'tap me'),
-                                    m('br'),
-                                    m('span', tapHelper.getZ(item.id))
-                                ]),
-                                className: item.className,
-                                tag: 'div[animated][layout][horizontal]',
-                                props: {
-                                    'data-id': item.id
-                                },
-                                events: {
-                                    onclick: tapHelper.handleClick
-                                },
-                                animated: true,
-                                z: tapHelper.getZ(item.id)
+                            return interactiveShadow({
+                                id: item.id,
+                                className: item.className
                             });
                         })
                     ])
