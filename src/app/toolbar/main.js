@@ -33,9 +33,7 @@ define(function(require) {
 
     toolbarBlock = m.component({
         view: function(ctrl, args) {
-            return m('div', {
-                class: 'p-block'
-            }, [
+            return m('.p-block', [
                 m('span', args.label),
                 toolbar(args.toolbar)
             ]);

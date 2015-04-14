@@ -42,9 +42,7 @@ define(function(require) {
 
     block = m.component({
         view: function(ctrl, args) {
-            return m('div', {
-                class: 'p-block p-inner-block'
-            }, [
+            return m('.p-block.p-inner-block', [
                 item(args.item)
             ]);
         }
@@ -52,9 +50,7 @@ define(function(require) {
 
     titleBlock = m.component({
         view: function(ctrl, args) {
-            return m('div', {
-                class: 'p-block'
-            }, [
+            return m('.p-block', [
                 m('h2', args.title),
                 args.content
             ]);

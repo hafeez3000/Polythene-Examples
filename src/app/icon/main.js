@@ -13,9 +13,7 @@ define(function(require) {
 
     block = m.component({
         view: function(ctrl, args) {
-            return m('div', {
-                class: 'p-block p-inner-block p-large'
-            }, [
+            return m('.p-block.p-inner-block.p-large', [
                 m('span', args.label),
                 m.trust(' '),
                 icon(args.icon)
@@ -25,9 +23,7 @@ define(function(require) {
 
     titleBlock = m.component({
         view: function(ctrl, args) {
-            return m('div', {
-                class: 'p-block'
-            }, [
+            return m('.p-block', [
                 m('h2', args.title),
                 args.content
             ]);

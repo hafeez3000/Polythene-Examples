@@ -14,9 +14,7 @@ define(function(require) {
     iconBlock = m.component({
         view: function(ctrl, args) {
             var btnArgs = (JSON.parse(JSON.stringify(args))); // copy object
-            return m('div', {
-                class: 'p-block p-large'
-            }, [
+            return m('.p-block.p-large', [
                 m('span', args.label),
                 m.trust(' '),
                 iconBtn(btnArgs.btn)
