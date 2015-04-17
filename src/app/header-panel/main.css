@@ -1,7 +1,4 @@
-
-/*
 @import url("https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic");
-*/
 
 body {
 	margin: 0;
@@ -39,6 +36,10 @@ body {
 	padding: 0 10px;
 	background-color: #4F7DC9;
 	color: #FFF;
+}
+
+.header-panel .header,
+.header-panel .toolbar {
 	transition: height 0.2s;
 }
 

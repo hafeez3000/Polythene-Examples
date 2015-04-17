@@ -4,7 +4,6 @@ define(function(require) {
     var m = require('mithril'),
         headerPanel = require('polythene/header-panel/header-panel'),
         iconBtn = require('polythene/icon-button/icon-button'),
-        toolbar = require('polythene/toolbar/toolbar'),
         nav = require('nav'),
         btn,
         toolbarRow,
@@ -15,19 +14,50 @@ define(function(require) {
     require('polythene/layout/layout');
     require('css!app-css');
     require('css!./main');
-
+    /*
+        var user = {
+            model: function(name) {
+                this.name = m.prop(name);
+            },
+            controller: function() {
+                this.user = new user.model("John Doe");
+            },
+            view: function(controller) {
+                return [
+                    m("h1", controller.user.name()),
+                    m("input", {oninput: m.withAttr("value", controller.user.name), value: controller.user.name()})
+                ];
+            }
+        };
+        m.module(document.body, user);
+        return;
+    */
     template = [
         '<div class="content">', [
-            'Harun Omar and Master Hafiz',
-            'keep your dead beautiful ladies',
-            'Mine is a little lovelier',
-            'than any of your ladies were.',
+            'Once a dream did weave a shade',
+            'O\'er my angel-guarded bed,',
+            'That an emmet lost its way',
+            'Where on grass methought I lay.',
             '',
-            'In her perfectest array',
-            'my lady, moving in the day,',
-            'is a little stranger thing',
-            'than crisp Sheba with her king',
-            'in the morning wandering.',
+            'Troubled, wildered, and forlorn,',
+            'Dark, benighted, travel-worn,',
+            'Over many a tangle spray,',
+            'All heart-broke, I heard her say:',
+            '',
+            '"Oh my children! do they cry,',
+            'Do they hear their father sigh?',
+            'Now they look abroad to see,',
+            'Now return and weep for me."',
+            '',
+            'Pitying, I dropped a tear:',
+            'But I saw a glow-worm near,',
+            'Who replied, "What wailing wight',
+            'Calls the watchman of the night?',
+            '',
+            '"I am set to light the ground,',
+            'While the beetle goes his round:',
+            'Follow now the beetle\'s hum;',
+            'Little wanderer, hie thee home!"'
         ].join('<br />'),
         '</div>'
     ].join('');
@@ -43,12 +73,13 @@ define(function(require) {
         });
     };
 
-    toolbarRow = [
-        btn('navigation', 'menu'),
-        m('span[flex]', 'Toolbar'),
-        btn('navigation', 'refresh'),
-        btn('content', 'add')
-    ];
+    toolbarRow = function(title) {
+        return [
+            btn('navigation', 'menu'),
+            m('span[flex]', title),
+            btn('navigation', 'refresh')
+        ];
+    };
 
     panel = {
         view: function(ctrl, args) {
@@ -66,6 +97,9 @@ define(function(require) {
                     title: 'Header Panel',
                     subtitle: 'Mithril version'
                 }),
+                m('.p-block p-block-separate',
+                    m('p', 'Kitchen sink examples of header panels with waterfall transitions and toolbar components.')
+                ),
                 m.component(panel, {
                     props: {
                         className: 'flex-container'
@@ -119,7 +153,7 @@ define(function(require) {
                         className: 'container'
                     },
                     panel: {
-                        mode: 'tall',
+                        mode: 'waterfall-tall',
                         header: {
                             content: 'Waterfall tall'
                         },
@@ -131,9 +165,9 @@ define(function(require) {
                         className: 'container'
                     },
                     panel: {
-                        mode: 'tall',
+                        mode: 'waterfall-tall',
+                        tallClass: 'medium-tall',
                         header: {
-                            className: 'medium-tall',
                             content: 'Waterfall tall (tallClass: medium-tall)'
                         },
                         content: m.trust(template)
@@ -156,9 +190,11 @@ define(function(require) {
                         className: 'container'
                     },
                     panel: {
-                        header: m.component(toolbar, {
-                            content: toolbarRow
-                        }),
+                        header: {
+                            toolbar: {
+                                content: toolbarRow('Toolbar comp')
+                            }
+                        },
                         content: m.trust(template)
                     }
                 }),
@@ -167,10 +203,43 @@ define(function(require) {
                         className: 'container'
                     },
                     panel: {
-                        header: m.component(toolbar, {
-                            mode: 'tall',
-                            content: toolbarRow
-                        }),
+                        mode: 'waterfall',
+                        header: {
+                            toolbar: {
+                                content: toolbarRow('Waterfall')
+                            }
+                        },
+                        content: m.trust(template)
+                    }
+                }),
+                m.component(panel, {
+                    props: {
+                        className: 'container'
+                    },
+                    panel: {
+                        mode: 'waterfall-tall',
+                        header: {
+                            toolbar: {
+                                mode: 'tall',
+                                content: toolbarRow('Waterfall tall')
+                            }
+                        },
+                        content: m.trust(template)
+                    }
+                }),
+                m.component(panel, {
+                    props: {
+                        className: 'container'
+                    },
+                    panel: {
+                        mode: 'waterfall-tall',
+                        shadow: false,
+                        header: {
+                            toolbar: {
+                                mode: 'tall',
+                                content: toolbarRow('No shadow')
+                            }
+                        },
                         content: m.trust(template)
                     }
                 })
