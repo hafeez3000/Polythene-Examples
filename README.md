@@ -2,6 +2,8 @@
 
 Demonstration of [Polythene](https://github.com/ArthurClemens/Polythene) components.
 
+[Browse examples](http://arthurclemens.github.io/Polythene-Examples/index.html)
+
 
 ## Dependencies
 
@@ -15,7 +17,7 @@ In the root directory, run the following commands:
 
 The installed frontend dependencies:
 
-* Polythene
+* [Polythene](https://github.com/ArthurClemens/Polythene)
 * [Mithril](http://lhorie.github.io/mithril)
 * [RequireJS](http://requirejs.org)
 * [require-css](https://github.com/guybedford/require-css)
