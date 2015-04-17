@@ -1,0 +1,17 @@
+
+.toolbar {
+	background-color: #CFA0E9;
+	color: #fff;
+	margin: 0 0 20px 0;
+	font-size: 24px;
+}
+.toolbar.dark-theme {
+	background-color: #7D25AC;
+	color: #f1f1f1;
+}
+.toolbar i.material-design-iconic-font svg {
+	fill: #fff;
+}
+.toolbar i.mdi svg path {
+	fill: #fff;
+}

@@ -1,0 +1,30 @@
+@import "../polythene/polythene";
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    fill: currentcolor;
+    position: relative;
+    height: $iconSize;
+    width: $iconSize;
+
+    [fit] {
+        height: 100%;
+    }
+
+    i {
+        font-size: $iconSize;
+        line-height: $iconSize;
+        display: block;
+
+        img {
+            height: 100%;
+        }
+
+        svg {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+}
