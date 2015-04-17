@@ -1,7 +1,7 @@
 {
     "name": "Polythene Examples",
     "version": "0.0.1",
-    "description": "Polymer inspired implementation of Material Design. Use standalone or with Mithril.",
+    "description": "Polymer inspired modular implementation of Material Design for Mithril: examples.",
     "license": "MIT",
     "ignore": ["**/.*"],
     "dependencies": {
