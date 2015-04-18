@@ -163,3 +163,6 @@ a {
 .icon-button .icon {
   pointer-events: none;
 }
+.gist-it-gist {
+	margin: 20px 10px;
+}
