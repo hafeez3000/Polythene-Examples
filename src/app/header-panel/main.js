@@ -14,24 +14,7 @@ define(function(require) {
     require('polythene/layout/layout');
     require('css!app-css');
     require('css!./main');
-    /*
-        var user = {
-            model: function(name) {
-                this.name = m.prop(name);
-            },
-            controller: function() {
-                this.user = new user.model("John Doe");
-            },
-            view: function(controller) {
-                return [
-                    m("h1", controller.user.name()),
-                    m("input", {oninput: m.withAttr("value", controller.user.name), value: controller.user.name()})
-                ];
-            }
-        };
-        m.module(document.body, user);
-        return;
-    */
+
     template = [
         '<div class="content">', [
             'Once a dream did weave a shade',
