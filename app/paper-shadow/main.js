@@ -4,6 +4,7 @@ define(function(require) {
     var m = require('mithril'),
         paper_shadow = require('polythene/paper-shadow/paper-shadow'),
         nav = require('nav'),
+        github = require('github'),
         titleBlock,
         interactiveShadow,
         content;
@@ -88,7 +89,7 @@ define(function(require) {
             return [
                 m.component(nav, {
                     baseFileName: 'paper-shadow',
-                    title: 'Paper-Shadow',
+                    title: 'Paper Shadow',
                     subtitle: 'Mithril version'
                 }),
 
@@ -116,7 +117,8 @@ define(function(require) {
                             });
                         })
                     ])
-                })
+                }),
+                github
             ];
         }
     };

@@ -4,6 +4,7 @@ define(function(require) {
     var m = require('mithril'),
         icon = require('polythene/icon/icon'),
         nav = require('nav'),
+        github = require('github'),
         block,
         titleBlock,
         content;
@@ -111,6 +112,56 @@ define(function(require) {
                 }),
 
                 m.component(titleBlock, {
+                    title: 'Sizing icons (large, medium, normal, small)',
+                    content: [
+                        m.component(block, {
+                            label: 'Happy',
+                            icon: {
+                                type: 'large',
+                                svg: {
+                                    name: 'emoticon-happy',
+                                    iconset: 'mdi'
+                                },
+                                className: 'mdi'
+                            }
+                        }),
+                        m.component(block, {
+                            label: 'Happy',
+                            icon: {
+                                type: 'medium',
+                                svg: {
+                                    name: 'emoticon-happy',
+                                    iconset: 'mdi'
+                                },
+                                className: 'mdi'
+                            }
+                        }),
+                        m.component(block, {
+                            label: 'Happy',
+                            icon: {
+                                type: 'normal',
+                                svg: {
+                                    name: 'emoticon-happy',
+                                    iconset: 'mdi'
+                                },
+                                className: 'mdi'
+                            }
+                        }),
+                        m.component(block, {
+                            label: 'Happy',
+                            icon: {
+                                type: 'small',
+                                svg: {
+                                    name: 'emoticon-happy',
+                                    iconset: 'mdi'
+                                },
+                                className: 'mdi'
+                            }
+                        })
+                    ]
+                }),
+
+                m.component(titleBlock, {
                     title: 'svg.src',
                     content: [
                         m.component(block, {
@@ -150,7 +201,8 @@ define(function(require) {
                             }
                         })
                     ]
-                })
+                }),
+                github
             ];
         }
     };

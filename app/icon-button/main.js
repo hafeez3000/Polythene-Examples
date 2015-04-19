@@ -4,6 +4,7 @@ define(function(require) {
     var m = require('mithril'),
         iconBtn = require('polythene/icon-button/icon-button'),
         nav = require('nav'),
+        github = require('github'),
         iconBlock,
         content;
 
@@ -65,7 +66,8 @@ define(function(require) {
                             className: 'md'
                         }
                     }
-                })
+                }),
+                github
             ];
         }
     };
