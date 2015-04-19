@@ -9,7 +9,8 @@ require.config({
         'app': '..',
         'app-css': '../app',
         'common': '../../common',
-        'nav': '../app-nav'
+        'nav': '../app-nav',
+        'github': '../app-github'
     },
     map: {
       '*': {

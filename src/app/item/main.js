@@ -5,6 +5,7 @@ define(function(require) {
         item = require('polythene/item/item'),
         icon = require('polythene/icon/icon'),
         nav = require('nav'),
+        github = require('github'),
         block,
         titleBlock,
         content,
@@ -175,6 +176,7 @@ define(function(require) {
                         })
                     ]
                 }),
+                github
             ];
         }
     };

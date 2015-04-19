@@ -5,6 +5,7 @@ define(function(require) {
         toolbar = require('polythene/toolbar/toolbar'),
         iconBtn = require('polythene/icon-button/icon-button'),
         nav = require('nav'),
+        github = require('github'),
         toolbarBlock,
         content,
         btn,
@@ -93,7 +94,8 @@ define(function(require) {
                         middleBar: m.trust('<div flex class="middle indent">element (e.g. progress) fits at the bottom of the toolbar</div>'),
                         bottomBar: m.trust('<div flex class="bottom fit" style="height: 20px; background-color: #0f9d58;"></div>')
                     }
-                })
+                }),
+                github
             ];
         }
     });

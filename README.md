@@ -25,6 +25,15 @@ The installed frontend dependencies:
 * [Material Design Icons](https://github.com/Templarian/MaterialDesign)
 
 
+## Viewing examples locally
+
+Firefox and Chrome do not allow to load SVG files from a file location. Use a webserver to view the examples, for instance use:
+
+```
+python -m SimpleHTTPServer 8000
+```
+
+
 ## License
 
 MIT
