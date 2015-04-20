@@ -100,7 +100,6 @@ define(function(require) {
                         className: 'container'
                     },
                     panel: {
-                        mode: 'standard',
                         header: {
                             content: 'Standard'
                         },
@@ -223,6 +222,15 @@ define(function(require) {
                                 content: toolbarRow('No shadow')
                             }
                         },
+                        content: m.trust(template)
+                    }
+                }),
+                m.component(panel, {
+                    props: {
+                        className: 'container'
+                    },
+                    panel: {
+                        header: m('.demo-header', 'My custom header'),
                         content: m.trust(template)
                     }
                 })

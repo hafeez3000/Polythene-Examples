@@ -56,3 +56,12 @@ body {
 	height: 2000px;
 	background: linear-gradient(rgb(214, 227, 231), lightblue);
 }
+
+.demo-header {
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	padding: 0 10px;
+	background-color: #E91E63;
+	color: #FFF;
+}
