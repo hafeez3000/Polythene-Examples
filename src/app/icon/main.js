@@ -26,6 +26,7 @@ define(function(require) {
         view: function(ctrl, args) {
             return m('.p-block', [
                 m('h2', args.title),
+                args.info ? args.info : null,
                 args.content
             ]);
         }
@@ -41,6 +42,9 @@ define(function(require) {
                 }),
                 m.component(titleBlock, {
                     title: 'Iconset: Material Design Icon Font',
+                    info: m('p', 
+                        m.trust('SVG icons from <a href="https://github.com/zavoloklom/material-design-iconic-font">Material Design Iconic Font</a>')
+                    ),
                     content: [
                         m.component(block, {
                             label: 'Menu',
@@ -77,6 +81,9 @@ define(function(require) {
 
                 m.component(titleBlock, {
                     title: 'Iconset: Templarian Material Design',
+                    info: m('p', 
+                        m.trust('SVG icons from <a href="https://github.com/Templarian/MaterialDesign">Templarian / Material Design</a>')
+                    ),
                     content: [
                         m.component(block, {
                             label: 'Barcode',
